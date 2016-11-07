@@ -1,0 +1,12 @@
+<h4>
+  New Contact Entry
+   <div class='pull-right'>
+  <a routerLink="/"><i class='glyphicon glyphicon-arrow-left'> </i></a>
+  </div>
+  </h4>   
+  <contact-form 
+  [model]="model" 
+  [errors]="errors"
+  [message]="message"  
+  (onSaved)="doSave($event)"
+  ></contact-form>

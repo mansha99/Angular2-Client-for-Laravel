@@ -1,0 +1,55 @@
+ <h4>
+  List of Contacts ::{{current_page}} of {{last_page}}
+  <div class='pull-right'>
+  
+    <a href='#' *ngIf="current_page != 1" class='btn btn-default' (click)="showPrevious()">
+            <i class='glyphicon glyphicon-chevron-left'></i>
+        </a>
+        &nbsp;&nbsp;
+        <a href='#' *ngIf="current_page != last_page"  class='btn btn-default' (click)="showNext()">
+            <i class='glyphicon glyphicon-chevron-right'></i>
+        </a>
+        &nbsp;&nbsp;
+  <a routerLink="/new-contact"><i class='glyphicon glyphicon-plus'> </i></a>
+  
+  </div>
+  </h4>   
+  <div class='alert alert-danger' *ngIf="errorMessage !=''">
+  {{errorMessage}}
+  </div>
+    <table class='table table-striped table-bordered'>
+    <thead>
+    <tr>    
+        <th>      
+        <a href='#' (click)="doSort('id')">    
+        <i class='glyphicon glyphicon-sort' *ngIf="sort =='id'"></i>
+           Id                            
+        </a>
+        </th>
+        <th>      
+        <a href='#' (click)="doSort('name')">    
+        <i class='glyphicon glyphicon-sort' *ngIf="sort =='name'"></i>
+           Name
+        </a>
+        </th>
+        <th>      
+        <a href='#'  (click)="doSort('email')">    
+        <i class='glyphicon glyphicon-sort' *ngIf="sort =='email'"></i>
+           Email
+        </a>
+        </th>
+        
+        
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let contact of data">      
+      <td>  {{ contact.id }}</td>
+      <td>  {{ contact.name }}</td>
+      <td>  {{ contact.email }}</td>      
+      </tr>
+      </tbody>
+    </table>
+    <div class='pull-right'>
+      
+    </div>
